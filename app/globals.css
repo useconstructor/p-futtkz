@@ -1,13 +1,72 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #F5F1E8;
-  --color-secondary: #E8F3F0;
-  --color-accent: #6B9B8D;
-  --color-background: #2C3E35;
+  --color-cream: #F5F1E8;
+  --color-cream-dark: #E8E4DB;
+  --color-sage: #6B9B8D;
+  --color-sage-dark: #5A8A7C;
+  --color-charcoal: #2C3E35;
+  --color-charcoal-light: #3D4F46;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
 @layer base {
   * { box-sizing: border-box; }
-  body { margin: 0; }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+}
+
+@layer components {
+  .nav-link {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-charcoal);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .nav-link:hover {
+    color: var(--color-sage);
+  }
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--color-sage);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-sage-dark);
+  }
+  .btn-outline {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--color-charcoal);
+    padding: 14px 32px;
+    border: 1px solid var(--color-charcoal);
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+  }
+  .btn-outline:hover {
+    background-color: var(--color-charcoal);
+    color: white;
+  }
 }
