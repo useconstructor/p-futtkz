@@ -2,6 +2,19 @@
 
 import { useState, useEffect } from 'react';
 
+function LotusIcon({ className = '', color = 'currentColor' }: { className?: string; color?: string }) {
+  return (
+    <svg viewBox="0 0 40 40" className={className} style={{ width: '24px', height: '24px' }}>
+      <ellipse cx="20" cy="28" rx="8" ry="4" fill={color} opacity="0.6" />
+      <path d="M20 8 Q25 18 20 28 Q15 18 20 8" fill={color} />
+      <path d="M20 12 Q30 16 28 28 Q22 22 20 28" fill={color} opacity="0.8" />
+      <path d="M20 12 Q10 16 12 28 Q18 22 20 28" fill={color} opacity="0.8" />
+      <path d="M20 16 Q34 14 32 28 Q24 20 20 28" fill={color} opacity="0.6" />
+      <path d="M20 16 Q6 14 8 28 Q16 20 20 28" fill={color} opacity="0.6" />
+    </svg>
+  );
+}
+
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -102,8 +115,22 @@ export default function Home() {
               maxWidth: '500px',
             }}
           >
-            Make space.<br />For what matters.
+            Make space.
           </h1>
+          <p
+            style={{
+              fontFamily: 'Georgia, serif',
+              fontSize: '2.5rem',
+              fontStyle: 'italic',
+              fontWeight: 400,
+              lineHeight: 1.2,
+              color: '#2C3E35',
+              marginBottom: '32px',
+              marginTop: '-16px',
+            }}
+          >
+            For what matters.
+          </p>
           <p
             style={{
               fontSize: '1.1rem',
@@ -125,14 +152,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right Image */}
+        {/* Right Image - Large Hero Photo */}
         <div
           style={{
-            backgroundColor: '#E8E4DB',
-            backgroundImage: 'linear-gradient(135deg, #D4CFC6 0%, #E8E4DB 50%, #C9C4BB 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
             position: 'relative',
             overflow: 'hidden',
           }}
@@ -141,36 +163,76 @@ export default function Home() {
             style={{
               width: '100%',
               height: '100%',
+              backgroundColor: '#C9C4BB',
+              backgroundImage: `
+                linear-gradient(135deg,
+                  #D4CFC6 0%,
+                  #C9C4BB 25%,
+                  #B8B3AA 50%,
+                  #C9C4BB 75%,
+                  #D4CFC6 100%
+                )
+              `,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               position: 'relative',
             }}
           >
-            {/* Decorative yoga pose silhouette */}
-            <svg
-              viewBox="0 0 200 300"
+            {/* Simulated yoga pose photo silhouette */}
+            <div
               style={{
-                width: '60%',
-                maxWidth: '300px',
-                height: 'auto',
-                opacity: 0.15,
+                position: 'absolute',
+                inset: 0,
+                display: 'flex',
+                alignItems: 'flex-end',
+                justifyContent: 'center',
+                padding: '40px',
               }}
             >
-              <ellipse cx="100" cy="60" rx="25" ry="30" fill="#6B9B8D" />
-              <path
-                d="M100 90 L100 180 M60 120 L100 130 L140 100 M100 180 L70 270 M100 180 L130 260"
-                stroke="#6B9B8D"
-                strokeWidth="8"
-                strokeLinecap="round"
-                fill="none"
-              />
-            </svg>
+              <svg
+                viewBox="0 0 300 400"
+                style={{
+                  width: '70%',
+                  height: '90%',
+                  opacity: 0.35,
+                }}
+              >
+                {/* Yoga warrior pose silhouette */}
+                <ellipse cx="150" cy="80" rx="35" ry="42" fill="#6B9B8D" />
+                <path
+                  d="M150 122
+                     L150 200
+                     L90 180 L30 160
+                     M150 200 L210 180 L270 200
+                     M150 200
+                     L150 280
+                     L100 380
+                     M150 280 L200 380"
+                  stroke="#6B9B8D"
+                  strokeWidth="20"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </div>
+            {/* Photo overlay effect */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: '40%',
+                background: 'linear-gradient(to top, rgba(201, 196, 187, 0.8), transparent)',
+              }}
+            />
           </div>
         </div>
       </section>
 
-      {/* Stats Banner */}
+      {/* Stats Banner with Lotus Icons */}
       <section
         style={{
           backgroundColor: '#6B9B8D',
@@ -187,98 +249,42 @@ export default function Home() {
             textAlign: 'center',
           }}
         >
-          <div>
-            <p
-              style={{
-                fontFamily: 'Georgia, serif',
-                fontSize: '3rem',
-                color: 'white',
-                marginBottom: '8px',
-              }}
-            >
-              12+
-            </p>
-            <p
-              style={{
-                fontSize: '0.75rem',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: 'rgba(255, 255, 255, 0.85)',
-              }}
-            >
-              Years of Practice
-            </p>
-          </div>
-          <div>
-            <p
-              style={{
-                fontFamily: 'Georgia, serif',
-                fontSize: '3rem',
-                color: 'white',
-                marginBottom: '8px',
-              }}
-            >
-              40+
-            </p>
-            <p
-              style={{
-                fontSize: '0.75rem',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: 'rgba(255, 255, 255, 0.85)',
-              }}
-            >
-              Weekly Classes
-            </p>
-          </div>
-          <div>
-            <p
-              style={{
-                fontFamily: 'Georgia, serif',
-                fontSize: '3rem',
-                color: 'white',
-                marginBottom: '8px',
-              }}
-            >
-              2,500+
-            </p>
-            <p
-              style={{
-                fontSize: '0.75rem',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: 'rgba(255, 255, 255, 0.85)',
-              }}
-            >
-              Active Members
-            </p>
-          </div>
-          <div>
-            <p
-              style={{
-                fontFamily: 'Georgia, serif',
-                fontSize: '3rem',
-                color: 'white',
-                marginBottom: '8px',
-              }}
-            >
-              4.9
-            </p>
-            <p
-              style={{
-                fontSize: '0.75rem',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: 'rgba(255, 255, 255, 0.85)',
-              }}
-            >
-              Star Rating
-            </p>
-          </div>
+          {[
+            { value: '12+', label: 'Years of Practice' },
+            { value: '40+', label: 'Weekly Classes' },
+            { value: '2,500+', label: 'Active Members' },
+            { value: '4.9', label: 'Star Rating' },
+          ].map((stat, index) => (
+            <div key={index} style={{ position: 'relative' }}>
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
+                <LotusIcon color="rgba(255, 255, 255, 0.4)" />
+              </div>
+              <p
+                style={{
+                  fontFamily: 'Georgia, serif',
+                  fontSize: '3rem',
+                  color: 'white',
+                  marginBottom: '8px',
+                }}
+              >
+                {stat.value}
+              </p>
+              <p
+                style={{
+                  fontSize: '0.75rem',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(255, 255, 255, 0.85)',
+                }}
+              >
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* About Split Section */}
+      {/* About Split Section - Content Left, Images Right */}
       <section
         id="about"
         style={{
@@ -287,42 +293,7 @@ export default function Home() {
           minHeight: '80vh',
         }}
       >
-        {/* Left Image */}
-        <div
-          style={{
-            backgroundColor: '#D4CFC6',
-            backgroundImage: 'linear-gradient(45deg, #C9C4BB 0%, #D4CFC6 50%, #E0DBD2 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <div
-            style={{
-              width: '80%',
-              height: '70%',
-              backgroundColor: 'rgba(107, 155, 141, 0.1)',
-              borderRadius: '4px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <svg
-              viewBox="0 0 100 100"
-              style={{ width: '40%', opacity: 0.2 }}
-            >
-              <circle cx="50" cy="50" r="45" stroke="#6B9B8D" strokeWidth="2" fill="none" />
-              <path
-                d="M50 15 L50 85 M15 50 L85 50"
-                stroke="#6B9B8D"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
-        </div>
-
-        {/* Right Content */}
+        {/* Left Content */}
         <div
           style={{
             display: 'flex',
@@ -381,6 +352,75 @@ export default function Home() {
           <a href="#contact" className="btn-primary" style={{ alignSelf: 'flex-start' }}>
             MEET OUR INSTRUCTORS
           </a>
+        </div>
+
+        {/* Right Images - 3 Studio Photos Grid */}
+        <div
+          style={{
+            backgroundColor: '#E8E4DB',
+            padding: '40px',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gridTemplateRows: '1fr 1fr',
+            gap: '16px',
+          }}
+        >
+          {/* Large photo - spans 2 rows */}
+          <div
+            style={{
+              gridRow: '1 / 3',
+              backgroundColor: '#D4CFC6',
+              backgroundImage: 'linear-gradient(145deg, #C9C4BB 0%, #D4CFC6 50%, #B8B3AA 100%)',
+              borderRadius: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            <svg viewBox="0 0 100 150" style={{ width: '50%', opacity: 0.2 }}>
+              <ellipse cx="50" cy="30" rx="15" ry="18" fill="#6B9B8D" />
+              <path d="M50 48 L50 90 M35 65 L50 70 L65 60 M50 90 L40 140 M50 90 L60 140" stroke="#6B9B8D" strokeWidth="6" strokeLinecap="round" fill="none" />
+            </svg>
+            <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px', color: 'rgba(107, 155, 141, 0.6)', fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+              Studio Interior
+            </div>
+          </div>
+          {/* Top right photo */}
+          <div
+            style={{
+              backgroundColor: '#C9C4BB',
+              backgroundImage: 'linear-gradient(135deg, #B8B3AA 0%, #C9C4BB 50%, #D4CFC6 100%)',
+              borderRadius: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+            }}
+          >
+            <LotusIcon color="rgba(107, 155, 141, 0.3)" />
+            <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', color: 'rgba(107, 155, 141, 0.6)', fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+              Group Class
+            </div>
+          </div>
+          {/* Bottom right photo */}
+          <div
+            style={{
+              backgroundColor: '#D4CFC6',
+              backgroundImage: 'linear-gradient(145deg, #D4CFC6 0%, #C9C4BB 50%, #B8B3AA 100%)',
+              borderRadius: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+            }}
+          >
+            <LotusIcon color="rgba(107, 155, 141, 0.3)" />
+            <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', color: 'rgba(107, 155, 141, 0.6)', fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+              Meditation Space
+            </div>
+          </div>
         </div>
       </section>
 
